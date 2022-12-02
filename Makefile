@@ -6,7 +6,7 @@
 #    By: troudot <troudot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 22:03:19 by troudot           #+#    #+#              #
-#    Updated: 2022/12/02 04:42:13 by troudot          ###   ########.fr        #
+#    Updated: 2022/12/02 04:43:03 by troudot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,11 +37,11 @@ $(OBJS): %.o: %.c
 		@echo "$(PREFIX_NAME) Compiling \033[38;5;166m$< -> $@\033[m"
 		@$(CC) $< -o $@ -c
 
-$(NAME): $(SRCS) $(OBJS)
+$(NAME): titre $(SRCS) $(OBJS)
 		@ar rcs $(NAME) $(OBJS)
 		@echo "\033[38;5;084m\nDone !\033[m"
 
-clean:
+clean: titre
 		@rm -f $(OBJS)
 		@echo "\033[38;5;084mDone !\033[m"
 
