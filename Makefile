@@ -6,7 +6,7 @@
 #    By: troudot <troudot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/01 22:03:19 by troudot           #+#    #+#              #
-#    Updated: 2022/12/02 06:59:47 by troudot          ###   ########.fr        #
+#    Updated: 2022/12/02 21:39:46 by troudot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,6 @@ CC =	gcc $(FLAG)
 FLAG =	 -Wall -Wextra -Werror
 
 SRCS =		ft_printf.c \
-			ft_printfopy.c \
-			main.c \
 
 OBJS =	$(SRCS:%.c=%.o)
 
@@ -35,7 +33,7 @@ ifeq (${H} , first)
 	@echo "\033[38;5;105m  █████╗     ██║     ██████╔╝██████╔╝██║██╔██╗ ██║   ██║   █████╗   \033"
 	@echo "\033[38;5;105m  ██╔══╝     ██║     ██╔═══╝ ██╔══██╗██║██║╚██╗██║   ██║   ██╔══╝   \033"
 	@echo "\033[38;5;105m  ██║        ██║     ██║     ██║  ██║██║██║ ╚████║   ██║   ██║      \033"
-	@echo "\033[38;5;105m  ╚═╝        ╚═╝     ╚═╝     ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝      \033\n\n"
+	@echo "\033[38;5;105m  ╚═╝        ╚═╝     ╚═╝     ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝       \033\n\n"
 	@H=second
 endif
 
@@ -57,3 +55,6 @@ fclean:	clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+# re-wrtie a line :
+# @echo "A longer sentance" && sleep 1 && echo -e "\r\033[1A\033[0K$(PREFIX_NAME)"
