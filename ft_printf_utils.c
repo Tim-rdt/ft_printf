@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: troudot <troudot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 03:04:22 by troudot           #+#    #+#             */
-/*   Updated: 2022/12/05 02:54:36 by troudot          ###   ########.fr       */
+/*   Created: 2022/12/04 05:03:06 by troudot           #+#    #+#             */
+/*   Updated: 2022/12/04 06:44:58 by troudot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+char	*ft_strchr(const char *s, int c)
+{
+	unsigned char	*str;
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdarg.h>
-
-char	*ft_strchr(const char *s, int c);
-
-#endif
+	str = ((unsigned char *)s) - 1;
+	while (*++str != ((unsigned char)c))
+		if (*str == 0)
+			return (0);
+	return ((char *)str);
+}

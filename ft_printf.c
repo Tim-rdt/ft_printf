@@ -6,19 +6,19 @@
 /*   By: troudot <troudot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 03:20:10 by troudot           #+#    #+#             */
-/*   Updated: 2022/12/03 07:31:09 by troudot          ###   ########.fr       */
+/*   Updated: 2022/12/05 03:36:44 by troudot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_module(args, str)
+int	ft_module(va_list args, const char str)
 {
 	int	len;
 
 	len = 0;
 	if (str == 'c')
-		//Affiche un seul caractère.
+		len += ft_strchr(va_arg(args, int));
 	if (str == 's')
 		//affiche str
 	if (str == 'p')
@@ -50,7 +50,10 @@ int	ft_printf(const char *str, ...)
 	while (str[i])
 	{
 		if (str[i++] == '%')
+		{
 			len += ft_module(args, str);
+			continue ;
+		}
 		else
 			// print first char
 		i++
